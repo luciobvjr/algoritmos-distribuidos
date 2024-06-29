@@ -1,0 +1,14 @@
+version: "3.9"
+
+networks:
+  distributed-system:
+    driver: bridge
+
+services:
+  program:
+    image: zero-mq
+    command: ["python", "-u", "program.py"]
+    networks:
+      - distributed-system
+    deploy:
+      replicas: 3
